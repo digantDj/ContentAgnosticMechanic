@@ -6,7 +6,7 @@ public class Spawner : MonoBehaviour
 	public float spawnTime = 5f;		// The amount of time between each spawn.
 	public float spawnDelay = 3f;		// The amount of time before spawning starts.
 	public GameObject[] enemies;		// Array of enemy prefabs.
-
+	private string enemyText;
 
 	private string SortingLayerName = "Default";
 	private int SortingOrder = 0;
@@ -25,7 +25,9 @@ public class Spawner : MonoBehaviour
 	/*	int enemyIndex = Random.Range(0, enemies.Length);
 		Instantiate(enemies[enemyIndex], transform.position, transform.rotation);
 		*/
-		makeEnemy ('6');
+		//Debug.Log (FrameworkCore.currentContent);
+		enemyText = FrameworkCore.currentContent.getTerm ();
+		makeEnemy (enemyText);
 		// Play the spawning effect from all of the particle systems.
 		foreach(ParticleSystem p in GetComponentsInChildren<ParticleSystem>())
 		{
@@ -33,7 +35,7 @@ public class Spawner : MonoBehaviour
 		}
 	}
 
-	private void makeEnemy(char item){
+	private void makeEnemy(string item){
 		// Instantiate a random enemy.
 		int enemyIndex = Random.Range(0, enemies.Length);
 		GameObject temp = (GameObject)Instantiate(enemies[enemyIndex], transform.position, transform.rotation);

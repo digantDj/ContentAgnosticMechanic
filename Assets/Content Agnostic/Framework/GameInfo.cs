@@ -11,7 +11,7 @@ public static class GameInfo
     public const string gameTitle = "Enemy Shooter";
 
     // Change this to be an object of your child class.
-    public static Mechanics mechanics = new NoMechanics();
+	public static Mechanics currentMechanics = new EnemyShooterMechanic();
 
     // Change each of these to be one of your content objects. If you only have one, leave the second alone for now.
 	//public static Content contentOne = new NoContent("Science/Health", "Prevent the diseases from spreading by shooting and surviving them till you can!");

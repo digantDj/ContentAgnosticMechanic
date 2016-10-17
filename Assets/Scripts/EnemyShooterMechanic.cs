@@ -3,8 +3,8 @@ using System.Collections;
 
 public class EnemyShooterMechanic : Mechanics {
 
-	public void sendHook(char c, char[] cs)
+	public void sendHook(string c)
 	{
-		passHook(new CompareHook(c, cs));
+		passHook(new IsEmptyHook(c));
 	}
 }

@@ -11,5 +11,6 @@ public enum HookType
     Idle,
     Input,
     Success,
+	IsEmpty,
     Task
 }

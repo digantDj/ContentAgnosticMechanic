@@ -17,6 +17,7 @@ public class Enemy : MonoBehaviour
 	private Transform frontCheck;		// Reference to the position of the gameobject used for checking if something is in front.
 	private bool dead = false;			// Whether or not the enemy is dead.
 	private Score score;				// Reference to the Score script.
+	private string enemyText = "0";
 
 	
 	void Awake()
@@ -53,9 +54,15 @@ public class Enemy : MonoBehaviour
 			ren.sprite = damagedEnemy;
 			
 		// If the enemy has zero or fewer hit points and isn't dead yet...
-		if(HP <= 0 && !dead)
+		if(HP <= 0 && !dead){
 			// ... call the death function.
-			Death ();
+			EnemyShooterMechanic temp = (EnemyShooterMechanic)GameInfo.currentMechanics;
+			temp.sendHook (transform.GetComponentInChildren<TextMesh>().text);
+
+			if ((FrameworkCore.currentContent.wasLastActionValid ())) {
+				Death ();
+			}
+		}
 	}
 	
 	public void Hurt()
