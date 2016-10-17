@@ -8,12 +8,12 @@ using System.Collections;
 public static class GameInfo
 {
     // Change to the title of your game.
-    public const string gameTitle = "Game Title";
+    public const string gameTitle = "Enemy Shooter";
 
     // Change this to be an object of your child class.
     public static Mechanics mechanics = new NoMechanics();
 
     // Change each of these to be one of your content objects. If you only have one, leave the second alone for now.
-    public static Content contentOne = new NoContent("Placeholder1", "This is the first empty content. Replace it with your own.");
+	public static Content contentOne = new NoContent("Science/Health", "Prevent the diseases from spreading by shooting and surviving them till you can!");
     public static Content contentTwo = new NoContent("Placeholder2", "This is the first empty content. Replace it with your second content.");
 }
