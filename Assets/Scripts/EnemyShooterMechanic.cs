@@ -1,15 +1,10 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class EnemyShooterMechanic : MonoBehaviour {
+public class EnemyShooterMechanic : Mechanics {
 
-	// Use this for initialization
-	void Start () {
-	
-	}
-	
-	// Update is called once per frame
-	void Update () {
-	
+	public void sendHook(char c, char[] cs)
+	{
+		passHook(new CompareHook(c, cs));
 	}
 }
