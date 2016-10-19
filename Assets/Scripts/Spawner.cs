@@ -37,7 +37,12 @@ public class Spawner : MonoBehaviour
 
 	private void makeEnemy(string item){
 		// Instantiate a random enemy.
-		int enemyIndex = Random.Range(0, enemies.Length);
+		int enemyIndex = 0;
+		if (item.Equals (" ")) {
+			enemyIndex = 2;
+		} else {
+			enemyIndex = Random.Range (0, 1);
+		}
 		GameObject temp = (GameObject)Instantiate(enemies[enemyIndex], transform.position, transform.rotation);
 		temp.GetComponentInChildren<TextMesh>().text = "" + item;
 		temp.GetComponent<MeshRenderer> ().sortingLayerName = SortingLayerName;

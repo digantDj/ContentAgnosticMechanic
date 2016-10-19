@@ -3,7 +3,7 @@ using System.Collections;
 
 public class HealthContent : Content {
 
-	private string[] dieases = {"dengue"," ", "infection","cold"," ","flu","aids","cancer","tb"," "};
+	private string[] dieases = {"dengue"," ", "infection","cold"," ","flu","aids"," ","cancer","tb"," "};
 
 	public HealthContent(string name, string description){
 		base.description = description;
@@ -12,7 +12,7 @@ public class HealthContent : Content {
 
 	public HealthContent(){
 		name = "Health/Science";
-		description = "Shoot only the microorganisms with diseases!";
+		description = "Keep humans healthy by shooting dieseases";
 	}
 
 	/*public override char getItem(){
@@ -51,6 +51,5 @@ public class HealthContent : Content {
 		} else {
 			lastActionValid = true;
 		}
-		Debug.Log(lastActionValid);
 	}
 }

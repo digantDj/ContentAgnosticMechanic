@@ -1,0 +1,18 @@
+[0] Note: All times listed are in seconds since the start of the game!
+[0] Some times (such as this message) may be the same. This means both happened within the same frame in Unity.
+[8.179999] Hook Received -> [IsEmptyHook: input= ]
+[10.4] Hook Received -> [IsEmptyHook: input= ]
+[14.12] Hook Received -> [IsEmptyHook: input=aids]
+[14.36] Hook Received -> [IsEmptyHook: input=tb]
+[20.98] Hook Received -> [IsEmptyHook: input=aids]
+[21.96] Hook Received -> [IsEmptyHook: input=cold]
+[23.34] Hook Received -> [IsEmptyHook: input=cold]
+[32.88] Hook Received -> [IsEmptyHook: input=dengue]
+[37.92] Hook Received -> [IsEmptyHook: input=cancer]
+[38.38] Hook Received -> [IsEmptyHook: input=infection]
+[41.24] Hook Received -> [IsEmptyHook: input=tb]
+[44.12] Hook Received -> [IsEmptyHook: input=cold]
+[47.7] Hook Received -> [IsEmptyHook: input=aids]
+[49.1] Hook Received -> [IsEmptyHook: input=infection]
+[54.62] Hook Received -> [IsEmptyHook: input= ]
+[54.94] Hook Received -> [IsEmptyHook: input= ]

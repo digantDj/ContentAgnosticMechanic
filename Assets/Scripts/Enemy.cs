@@ -56,12 +56,8 @@ public class Enemy : MonoBehaviour
 		// If the enemy has zero or fewer hit points and isn't dead yet...
 		if(HP <= 0 && !dead){
 			// ... call the death function.
-			EnemyShooterMechanic temp = (EnemyShooterMechanic)GameInfo.currentMechanics;
-			temp.sendHook (transform.GetComponentInChildren<TextMesh>().text);
+			Death ();
 
-			if ((FrameworkCore.currentContent.wasLastActionValid ())) {
-				Death ();
-			}
 		}
 	}
 	
@@ -86,9 +82,17 @@ public class Enemy : MonoBehaviour
 		ren.enabled = true;
 		ren.sprite = deadEnemy;
 
-		// Increase the score by 100 points
-		score.score += 100;
+		// Using Mechanic to find if current object is Human or not - Text is empty or not
+		EnemyShooterMechanic temp = (EnemyShooterMechanic)GameInfo.currentMechanics;
+		temp.sendHook (transform.GetComponentInChildren<TextMesh>().text);
 
+		if ((FrameworkCore.currentContent.wasLastActionValid ())) {
+			// Increase the score by 100 points
+			score.score += 100;
+		} else {
+			// Increase the score by 100 points
+			score.score -= 100;
+		}
 		// Set dead to true.
 		dead = true;
 
@@ -113,7 +117,7 @@ public class Enemy : MonoBehaviour
 		scorePos.y += 1.5f;
 
 		// Instantiate the 100 points prefab at this point.
-		Instantiate(hundredPointsUI, scorePos, Quaternion.identity);
+		Instantiate (hundredPointsUI, scorePos, Quaternion.identity);
 	}
 
 
