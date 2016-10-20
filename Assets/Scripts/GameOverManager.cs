@@ -3,6 +3,7 @@ using UnityEngine.UI;
 using System.Collections;
 using UnityEngine.SceneManagement;
 
+
 public class GameOverManager : MonoBehaviour {
 
 	public Text title;
@@ -16,6 +17,8 @@ public class GameOverManager : MonoBehaviour {
 
 	private Content contentOne;
 	private Content contentTwo;
+
+	private string[] substrings;
 
 	// Use this for initialization
 	void Start()
@@ -52,8 +55,18 @@ public class GameOverManager : MonoBehaviour {
 	{
 //		domain.text = FrameworkCore.currentContent.name;
 		//description.text = FrameworkCore.currentContent.description;
+		description.text = "";
 		if (FrameworkCore.currentContent.name == "Science/Health") {
-			description.text = PlayerPrefs.GetString ("Diseases");
+			
+			substrings = PlayerPrefs.GetString ("Diseases").Split('\n');
+
+			HealthContent hcobj = new HealthContent ();
+			foreach(string item in substrings)
+			{
+				if(item != " ")
+				description.text += hcobj.getEntireTerm (item) + "\n";
+			}
+			// description.text = PlayerPrefs.GetString ("Diseases");
 		}
 		GameObject.FindWithTag ("Score").GetComponent<GUIText>().text = "Score: " + PlayerPrefs.GetInt("Player Score");
 	}
@@ -98,6 +111,7 @@ public class GameOverManager : MonoBehaviour {
 
 	public void hitMenu()
 	{
+		// ... Clearing the storage variables
 		PlayerPrefs.SetInt("Player Score", 0);
 		PlayerPrefs.SetString("Diseases", " ");
 		SceneManager.LoadScene(0);
