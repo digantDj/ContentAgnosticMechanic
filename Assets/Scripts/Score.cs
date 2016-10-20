@@ -14,6 +14,7 @@ public class Score : MonoBehaviour
 	{
 		// Setting up the reference.
 		playerControl = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerControl>();
+		PlayerPrefs.SetString("Diseases", " ");
 	}
 
 
@@ -21,6 +22,9 @@ public class Score : MonoBehaviour
 	{
 		// Set the score text.
 		GetComponent<GUIText>().text = "Score: " + score;
+
+		// Storing Player's score for Game Over screen
+		PlayerPrefs.SetInt("Player Score", score);
 
 		// If the score has changed...
 		if(previousScore != score)

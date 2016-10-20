@@ -3,7 +3,7 @@ using System.Collections;
 
 public class HealthContent : Content {
 
-	private string[] dieases = {"dengue"," ", "infection","cold"," ","flu","aids"," ","cancer","tb"," "};
+	private string[] dieases = {"dengue","malaria","cold"," ","flu","aids"," ","cancer","tb"," "};
 
 	public HealthContent(string name, string description){
 		base.description = description;

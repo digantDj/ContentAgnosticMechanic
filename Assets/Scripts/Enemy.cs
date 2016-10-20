@@ -18,6 +18,7 @@ public class Enemy : MonoBehaviour
 	private bool dead = false;			// Whether or not the enemy is dead.
 	private Score score;				// Reference to the Score script.
 	private string enemyText = "0";
+	private string disease;
 
 	
 	void Awake()
@@ -89,6 +90,11 @@ public class Enemy : MonoBehaviour
 		if ((FrameworkCore.currentContent.wasLastActionValid ())) {
 			// Increase the score by 100 points
 			score.score += 100;
+			disease = transform.GetComponentInChildren<TextMesh> ().text;
+			if (!PlayerPrefs.GetString("Diseases").Contains (disease)) {
+				PlayerPrefs.SetString("Diseases", PlayerPrefs.GetString("Diseases") + "\n" +  disease);
+			}
+
 		} else {
 			// Increase the score by 100 points
 			score.score -= 100;

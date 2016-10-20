@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.SceneManagement;
 
 public class Remover : MonoBehaviour
 {
@@ -25,7 +26,8 @@ public class Remover : MonoBehaviour
 			// ... destroy the player.
 			Destroy (col.gameObject);
 			// ... reload the level.
-			StartCoroutine("ReloadGame");
+			// StartCoroutine("ReloadGame");
+			StartCoroutine("EndGame");
 		}
 		else
 		{
@@ -43,5 +45,12 @@ public class Remover : MonoBehaviour
 		yield return new WaitForSeconds(2);
 		// ... and then reload the level.
 		Application.LoadLevel(Application.loadedLevel);
+	}
+
+	void EndGame()
+	{	
+		
+		// ... Load Game Over Scene
+		SceneManager.LoadScene(2);
 	}
 }
