@@ -132,7 +132,12 @@ Prefab:
     - target: {fileID: 114000012336783086, guid: 93e3b6350b28021489d41ead71dac686,
         type: 2}
       propertyPath: m_Text
-      value: Science/Health
+      value: Health & Disease
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000010886765526, guid: 93e3b6350b28021489d41ead71dac686,
+        type: 2}
+      propertyPath: m_Text
+      value: Social Issues
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 93e3b6350b28021489d41ead71dac686, type: 2}
