@@ -1,6 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+//using System;
+
 public class Spawner : MonoBehaviour
 {
 	public float spawnTime = 5f;		// The amount of time between each spawn.
@@ -43,8 +45,16 @@ public class Spawner : MonoBehaviour
 		} else {
 			enemyIndex = Random.Range (0, 1);
 		}
+
+		// Instantiating the germ
 		GameObject temp = (GameObject)Instantiate(enemies[enemyIndex], transform.position, transform.rotation);
-		temp.GetComponentInChildren<TextMesh>().text = "" + item;
+
+		//temp.GetComponentInChildren<TextMesh> ().text = "" + item;
+		temp.transform.Find ("germText").GetComponentInChildren<TextMesh> ().text = "" + item;
+		if (transform.position.x > 0) {
+			temp.transform.Find ("germImage").GetComponent<SpriteRenderer> ().flipX = true;
+			temp.transform.Find ("germText").transform.localRotation = Quaternion.Euler(0, 180, 0);
+		}
 		temp.GetComponent<MeshRenderer> ().sortingLayerName = SortingLayerName;
 		temp.GetComponent<MeshRenderer> ().sortingOrder = SortingOrder;
 	}

@@ -14,7 +14,7 @@ public class Score : MonoBehaviour
 	{
 		// Setting up the reference.
 		playerControl = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerControl>();
-		PlayerPrefs.SetString("Diseases", " ");
+		//PlayerPrefs.SetString("Diseases", " ");
 	}
 
 

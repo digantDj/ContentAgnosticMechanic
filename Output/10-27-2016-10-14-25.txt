@@ -1,0 +1,16 @@
+[0] Note: All times listed are in seconds since the start of the game!
+[0] Some times (such as this message) may be the same. This means both happened within the same frame in Unity.
+[4.5] Hook Received -> [IsEmptyHook: input=-1]
+[6.04] Hook Received -> [IsEmptyHook: input=-1]
+[7.34] Hook Received -> [IsEmptyHook: input=-1]
+[9.179999] Hook Received -> [IsEmptyHook: input=-1]
+[10.8] Hook Received -> [IsEmptyHook: input=-1]
+[13.26] Hook Received -> [IsEmptyHook: input=-1]
+[13.54] Hook Received -> [IsEmptyHook: input=-1]
+[16.84] Hook Received -> [IsEmptyHook: input=-1]
+[16.86] Hook Received -> [IsEmptyHook: input=-1]
+[17.7] Hook Received -> [IsEmptyHook: input=human]
+[17.76] Hook Received -> [IsEmptyHook: input=human]
+[19.5] Hook Received -> [IsEmptyHook: input=-1]
+[21.38] Hook Received -> [IsEmptyHook: input=human]
+[21.46] Hook Received -> [IsEmptyHook: input=human]

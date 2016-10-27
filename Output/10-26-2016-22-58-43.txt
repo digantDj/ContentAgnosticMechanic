@@ -1,0 +1,2 @@
+[13.77826] Note: All times listed are in seconds since the start of the game!
+[13.77826] Some times (such as this message) may be the same. This means both happened within the same frame in Unity.

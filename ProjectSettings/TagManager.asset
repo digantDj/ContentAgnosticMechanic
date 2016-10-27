@@ -14,6 +14,7 @@ TagManager:
   - ExplosionFX
   - HealthBar
   - Score
+  - GermImage
   layers:
   - Default
   - TransparentFX

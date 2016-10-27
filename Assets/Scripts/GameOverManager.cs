@@ -33,6 +33,7 @@ public class GameOverManager : MonoBehaviour {
 		// Set as a blank before the player selects one.
 		//FrameworkCore.setContent(new NoContent());
 		updateDisplay();
+		PlayerPrefs.SetString("Diseases","");
 		FileManagement.init(); // Create the dump file to mark the start of the game.
 	}
 
@@ -56,10 +57,10 @@ public class GameOverManager : MonoBehaviour {
 //		domain.text = FrameworkCore.currentContent.name;
 		//description.text = FrameworkCore.currentContent.description;
 		description.text = "";
-		if (FrameworkCore.currentContent.name == "Science/Health") {
-			
+		if (FrameworkCore.currentContent.name == "Health & Disease") {
+			Debug.Log (PlayerPrefs.GetString ("Diseases"));
 			substrings = PlayerPrefs.GetString ("Diseases").Split('\n');
-
+			Debug.Log (PlayerPrefs.GetString ("Diseases"));
 			HealthContent hcobj = new HealthContent ();
 			foreach(string item in substrings)
 			{
@@ -68,33 +69,19 @@ public class GameOverManager : MonoBehaviour {
 			}
 			// description.text = PlayerPrefs.GetString ("Diseases");
 		}
+		else if(FrameworkCore.currentContent.name == "Social Issues") {
+
+			substrings = PlayerPrefs.GetString ("Diseases").Split('\n');
+
+			SocialScienceContent sscobj = new SocialScienceContent ();
+			foreach(string item in substrings)
+			{
+				if(item != " ")
+					description.text += sscobj.getEntireTerm (item) + "\n";
+			}
+			// description.text = PlayerPrefs.GetString ("Diseases");
+		}
 		GameObject.FindWithTag ("Score").GetComponent<GUIText>().text = "Score: " + PlayerPrefs.GetInt("Player Score");
-	}
-
-	// Button functions
-	public void hitContentOne()
-	{
-		FrameworkCore.setContent(contentOne);
-		updateDisplay();
-	}
-
-	public void hitContentTwo()
-	{
-		FrameworkCore.setContent(contentTwo);
-		updateDisplay();
-	}
-
-	public void hitStart()
-	{
-		if(FrameworkCore.currentContent.GetType() == typeof(NoContent))
-		{
-			pulseDelay = DELAY;
-		}
-		else
-		{
-			// Loads the next scene in the build order. Main menu should be 0, first level should be 1, etc.
-			SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
-		}
 	}
 
 	public void hitQuit()
@@ -113,7 +100,7 @@ public class GameOverManager : MonoBehaviour {
 	{
 		// ... Clearing the storage variables
 		PlayerPrefs.SetInt("Player Score", 0);
-		PlayerPrefs.SetString("Diseases", " ");
+
 		SceneManager.LoadScene(0);
 	}
 

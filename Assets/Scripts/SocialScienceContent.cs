@@ -3,8 +3,7 @@ using System.Collections;
 
 public class SocialScienceContent : Content {
 
-	//private string[] dieases = {"dengue - A mosquito borne viral disease occurring in tropical and subtropical areas.","malaria","cold"," ","flu","aids"," ","cancer","tb"," ", " "};
-	private string[] issues = {"child abuse - A","homelessness - A","immigration - A"," ","genocide - A","slavery - "," ","gun violence - A","racism - A"," ","drugs - A"};
+	private string[] issues = {"child abuse- Child abuse is when a parent or caregiver, whether through action or failing to act, causes injury, death, emotional harm or risk of serious harm to a child.","gender inequality- Gender inequality refers to unequal treatment or perceptions of individuals based on their gender. It arises from differences in socially constructed gender roles."," " ,"corruption- Dishonest or fraudulent conduct by those in power, typically involving bribery."," ","genocide- The deliberate killing of a large group of people, especially those of a particular ethnic group or nation."," ","slavery- Slavery in America began when the first African slaves were brought to the North American colony of Jamestown, Virginia, in 1619, to aid in the production of such lucrative crops as tobacco."," ","gun violence- Gun related violence is violence committed with the use of a gun (firearm or small arm). ","racism- The belief that all members of each race possess characteristics or abilities specific to that race, especially so as to distinguish it as inferior or superior to another race or races."," "};
 
 
 	public SocialScienceContent(string name, string description){
@@ -16,18 +15,7 @@ public class SocialScienceContent : Content {
 		name = "Social Issues";
 		description = "Protect US citizens from the various social issues in US history as they turn into reality once again.";
 	}
-
-	/*public override char getItem(){
-		return dieases [Random.Range (0, dieases.Length)];
-	}*/
-
-	/// <summary>
-	/// This is the same as above, but for longer than
-	/// single char strings. This can also be for things
-	/// like a message representing an objective to the
-	/// player.
-	/// </summary>
-	/// <returns>A string specific to this content.</returns>
+		
 	public override string getTerm()
 	{
 		return issues[Random.Range(0, issues.Length)].Split('-')[0];

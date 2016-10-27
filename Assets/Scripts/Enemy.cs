@@ -90,13 +90,15 @@ public class Enemy : MonoBehaviour
 		if ((FrameworkCore.currentContent.wasLastActionValid ())) {
 			// Increase the score by 100 points
 			score.score += 100;
-			disease = transform.GetComponentInChildren<TextMesh> ().text;
+			disease = transform.Find ("germText").GetComponentInChildren<TextMesh> ().text;
+
 			if (!PlayerPrefs.GetString("Diseases").Contains (disease)) {
+				
 				PlayerPrefs.SetString("Diseases", PlayerPrefs.GetString("Diseases") + "\n" +  disease);
 			}
 
 		} else {
-			// Increase the score by 100 points
+			// Decrease the score by 100 points
 			score.score -= 100;
 		}
 		// Set dead to true.

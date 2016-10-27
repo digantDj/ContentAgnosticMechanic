@@ -14,7 +14,7 @@ public class PlayerHealth : MonoBehaviour
 	private Vector3 healthScale;				// The local scale of the health bar initially (with full health).
 	private PlayerControl playerControl;		// Reference to the PlayerControl script.
 	private Animator anim;						// Reference to the Animator on the player
-
+	private Sprite germSprite;
 
 	void Awake ()
 	{
@@ -101,7 +101,39 @@ public class PlayerHealth : MonoBehaviour
 		// Play a random clip of the player getting hurt.
 		int i = Random.Range (0, ouchClips.Length);
 		AudioSource.PlayClipAtPoint(ouchClips[i], transform.position);
+		/*
+		// Show related image after player hurt
+		if(FrameworkCore.currentContent.ToString().Equals("HealthContent")){
+	
+			// Calling Subroutine to display germSprite
+			StartCoroutine(displayGermSprite(enemy, enemy.transform.Find ("germText").GetComponentInChildren<TextMesh> ().text));
+	
+		}	
+		else if(FrameworkCore.currentContent.ToString().Equals("SocialScienceContent")){
+			// Debug.Log(FrameworkCore.currentContent + " " + enemy.GetComponentInChildren<TextMesh>().text);
+			StartCoroutine(displayGermSprite(enemy, enemy.transform.Find ("germText").GetComponentInChildren<TextMesh> ().text));
+		}*/
+		StartCoroutine(displayGermSprite(enemy, enemy.transform.Find ("germText").GetComponentInChildren<TextMesh> ().text));
+
 	}
+
+	IEnumerator displayGermSprite(Transform enemy, string germText)
+	{
+		germSprite = (Sprite)Resources.Load<Sprite> (germText);
+
+		enemy.Find ("germImage").GetComponent<SpriteRenderer> ().sprite = germSprite;
+		enemy.Find ("germImage").GetComponent<SpriteRenderer> ().enabled = true;
+
+		yield return new WaitForSeconds(2f);  
+		 //Wait for 2 seconds
+		try{
+			enemy.Find ("germImage").GetComponent<SpriteRenderer> ().enabled = false;
+		}
+		catch{
+			
+		}
+	}
+
 
 
 	public void UpdateHealthBar ()
